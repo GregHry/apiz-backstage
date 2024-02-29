@@ -16,7 +16,7 @@ spec:
 apiVersion: backstage.io/v1alpha1
 kind: Component
 metadata:
-  name: apiz-backstage
+  name: dummy-plugin
   description: Fake REST API of JSON data
   # Example for optional annotations
   # annotations:
