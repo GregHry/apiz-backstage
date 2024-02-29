@@ -50,6 +50,10 @@ proxy:
   #   '/test':
   #     target: 'https://example.com'
   #     changeOrigin: true
+   '/github':
+      target: https://api.github.com
+      headers:
+        Authorization: 'token ${GITHUB_TOKEN}'
 
 # Reference documentation http://backstage.io/docs/features/techdocs/configuration
 # Note: After experimenting with basic setup, use CI/CD to generate docs

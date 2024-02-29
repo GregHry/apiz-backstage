@@ -1,1 +1,1 @@
-export { dummyPluginPlugin, DummyPluginPage } from './plugin';
+export { dummyPluginPlugin, DummyPluginPage, EntityDummyPluginCard } from './plugin';

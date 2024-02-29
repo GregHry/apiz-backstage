@@ -11,28 +11,32 @@ import {
 } from '@backstage/core-components';
 import { ExampleFetchComponent } from '../ExampleFetchComponent';
 
-export const ExampleComponent = () => (
+export const ExampleComponent = () => {
+  return (
   <Page themeId="tool">
-    <Header title="Welcome to dummy-plugin!" subtitle="Optional subtitle">
-      <HeaderLabel label="Owner" value="Team X" />
-      <HeaderLabel label="Lifecycle" value="Alpha" />
+    <Header title="DummyJSON" subtitle="Fake REST API of JSON data">
+      <HeaderLabel label="Owner" value="GregH" />
+      <HeaderLabel label="Lifecycle" value="experimental" />
     </Header>
     <Content>
-      <ContentHeader title="Plugin title">
-        <SupportButton>A description of your plugin goes here.</SupportButton>
+      <ContentHeader title="This is a title">
+        <SupportButton>Support? What support? Idk bro</SupportButton>
       </ContentHeader>
       <Grid container spacing={3} direction="column">
         <Grid item>
           <InfoCard title="Information card">
             <Typography variant="body1">
-              All content should be wrapped in a card like this.
+              Tired of Lorem ipsum ? Try DummyJSON !
             </Typography>
           </InfoCard>
+          
         </Grid>
         <Grid item>
+          
           <ExampleFetchComponent />
         </Grid>
       </Grid>
     </Content>
   </Page>
 );
+};
