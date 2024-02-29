@@ -20,7 +20,7 @@ metadata:
   description: Fake REST API of JSON data
   
   # Example for optional annotations
-   annotations:
+  annotations:
      backstage.io/managed-by-location: url:https://github.com/GregHry/apiz-backstage/blob/main/catalog-info.yaml
      backstage.io/techdocs-ref: dir:.
 spec:
