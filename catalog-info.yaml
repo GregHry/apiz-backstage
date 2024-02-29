@@ -20,9 +20,9 @@ metadata:
   description: Fake REST API of JSON data
   
   # Example for optional annotations
-  # annotations:
-  #   github.com/project-slug: backstage/backstage
-  #   backstage.io/techdocs-ref: dir:.
+   annotations:
+     backstage.io/managed-by-location: url:https://github.com/GregHry/apiz-backstage/blob/main/catalog-info.yaml
+     backstage.io/techdocs-ref: dir:.
 spec:
   type: service
   owner: ghe@contraste.com
