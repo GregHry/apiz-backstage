@@ -40,3 +40,23 @@ spec:
   type: website
   lifecycle: production
   owner: Greg
+
+---
+
+apiVersion:  backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: BackstageApp
+  description: Backstageception
+  annotations:
+    backstage.io/managed-by-location: https://github.com/GregHry/apiz-backstage/blob/main/catalog-info.yaml
+    github.com/project-slug: GregHry/apiz-backstage
+    backstage.io/techdocs-ref: dir:.
+  tags:
+    - web
+    
+
+spec:
+  type: service
+  lifecycle: experimental
+  owner: Greg
