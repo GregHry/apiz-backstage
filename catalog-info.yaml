@@ -35,7 +35,7 @@ metadata:
   name: github-actions
   description: CI/CD github actions
   annotations:
-    github.com/project-slug: 'GregHry/apiz-backstage'
+    github.com/project-slug: GregHry/apiz-backstage
 spec:
   type: service
   lifecycle: production
@@ -50,7 +50,7 @@ metadata:
   description: Backstageception
   annotations:
     backstage.io/managed-by-location: https://github.com/GregHry/apiz-backstage/blob/main/catalog-info.yaml
-    github.com/project-slug: 'GregHry/apiz-backstage'
+    github.com/project-slug: GregHry/apiz-backstage
     backstage.io/techdocs-ref: dir:.
   tags:
     - web
