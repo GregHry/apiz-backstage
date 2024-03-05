@@ -35,7 +35,7 @@ metadata:
   name: github-actions
   description: CI/CD github actions
   annotations:
-    github.com/project-slug: 'GregHry/backstage'
+    github.com/project-slug: 'GregHry/apiz-backstage'
 spec:
   type: website
   lifecycle: production
