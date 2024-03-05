@@ -54,8 +54,6 @@ metadata:
     backstage.io/techdocs-ref: dir:.
   tags:
     - web
-    
-
 spec:
   type: service
   lifecycle: experimental
