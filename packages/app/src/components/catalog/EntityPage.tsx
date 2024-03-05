@@ -59,6 +59,13 @@ import {
   EntityGithubActionsContent,
   isGithubActionsAvailable,
 } from '@backstage/plugin-github-actions';
+import { EntityGithubInsightsContent } from '@roadiehq/backstage-plugin-github-insights';
+import {
+  EntityGithubInsightsLanguagesCard,
+  EntityGithubInsightsReadmeCard,
+  EntityGithubInsightsReleasesCard,
+  isGithubInsightsAvailable,
+  } from '@roadiehq/backstage-plugin-github-insights';
 
 const techdocsContent = (
   <EntityTechdocsContent>
@@ -125,7 +132,19 @@ const entityWarningContent = (
 
 const overviewContent = (
   <Grid container spacing={3} alignItems="stretch">
+
     {entityWarningContent}
+    <EntitySwitch>
+      <EntitySwitch.Case if={e => Boolean(isGithubInsightsAvailable(e))}>
+        <Grid item md={6}>
+          <EntityGithubInsightsLanguagesCard />
+          <EntityGithubInsightsReleasesCard />
+        </Grid>
+        <Grid item md={6}>
+          <EntityGithubInsightsReadmeCard maxHeight={350} />
+        </Grid>
+      </EntitySwitch.Case>
+    </EntitySwitch>
     <Grid item md={6}>
       <EntityAboutCard variant="gridItem" />
     </Grid>
@@ -158,6 +177,11 @@ const serviceEntityPage = (
     </EntityLayout.Route>
     <EntityLayout.Route path="/github-actions" title="GitHub Actions">
       <EntityGithubActionsContent />
+    </EntityLayout.Route>
+    <EntityLayout.Route 
+      path="/code-insights"
+      title="Code Insights">
+      <EntityGithubInsightsContent />
     </EntityLayout.Route>
 
     <EntityLayout.Route path="/ci-cd" title="CI/CD">

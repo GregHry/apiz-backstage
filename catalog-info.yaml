@@ -37,7 +37,7 @@ metadata:
   annotations:
     github.com/project-slug: 'GregHry/apiz-backstage'
 spec:
-  type: website
+  type: service
   lifecycle: production
   owner: Greg
 
