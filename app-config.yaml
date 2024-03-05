@@ -28,8 +28,12 @@ backend:
   # This is for local development only, it is not recommended to use this in production
   # The production database configuration is stored in app-config.production.yaml
   database:
-    client: better-sqlite3
-    connection: ':memory:'
+    client: pg
+    connection:
+      host: 127.0.0.1
+      port: 5432
+      user: greg
+      password: main01
   # workingDirectory: /tmp # Use this to configure a working directory for the scaffolder, defaults to the OS temp-dir
 
 integrations:
@@ -37,7 +41,7 @@ integrations:
     - host: github.com
       # This is a Personal Access Token or PAT from GitHub. You can find out how to generate this token, and more information
       # about setting up the GitHub integration here: https://backstage.io/docs/getting-started/configuration#setting-up-a-github-integration
-      token: ${GITHUB_TOKEN}
+      token: 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
     ### Example for how to add your GitHub Enterprise instance using the API:
     # - host: ghe.example.net
     #   apiBaseUrl: https://ghe.example.net/api/v3
@@ -50,10 +54,7 @@ proxy:
   #   '/test':
   #     target: 'https://example.com'
   #     changeOrigin: true
-   '/github':
-      target: https://api.github.com
-      headers:
-        Authorization: 'token ${GITHUB_TOKEN}'
+  
 
 # Reference documentation http://backstage.io/docs/features/techdocs/configuration
 # Note: After experimenting with basic setup, use CI/CD to generate docs
@@ -68,7 +69,14 @@ techdocs:
 
 auth:
   # see https://backstage.io/docs/auth/ to learn about auth providers
-  providers: {}
+  experimentalExtraAllowedOrigins: [ 'http://127.0.0.1:3000']
+  environment: development
+  providers:
+    github:
+      development:
+        clientId: 394cb97c3fff3d3e0f0d
+        clientSecret: d99785f2946026fc9c2ffeaba17d7264812ccec1
+  
 
 scaffolder:
   # see https://backstage.io/docs/features/software-templates/configuration for software template options

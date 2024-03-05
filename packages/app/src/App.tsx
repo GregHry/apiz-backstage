@@ -1,5 +1,5 @@
 import React from 'react';
-import { Navigate, Route } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 import { apiDocsPlugin, ApiExplorerPage } from '@backstage/plugin-api-docs';
 import {
   CatalogEntityPage,
@@ -34,9 +34,17 @@ import { CatalogGraphPage } from '@backstage/plugin-catalog-graph';
 import { RequirePermission } from '@backstage/plugin-permission-react';
 import { catalogEntityCreatePermission } from '@backstage/plugin-catalog-common/alpha';
 import { DummyPluginPage } from '@internal/backstage-plugin-dummy-plugin';
+import { HomepageCompositionRoot } from '@backstage/plugin-home';
+import { HomePage } from './components/home/HomePage';
+import { themes } from '@backstage/theme';
+import { UnifiedThemeProvider } from '@backstage/theme';
+import LightIcon from  '@material-ui/icons/WbSunny';
+import { multicolorTheme } from './theme/multicolorTheme';
+
 
 const app = createApp({
   apis,
+
   bindRoutes({ bind }) {
     bind(catalogPlugin.externalRoutes, {
       createComponent: scaffolderPlugin.routes.root,
@@ -54,11 +62,35 @@ const app = createApp({
       catalogIndex: catalogPlugin.routes.catalogIndex,
     });
   },
+  themes: [
+    // Keeping the original themes is completely optional
+    {
+      id: 'default-dark',
+      title: 'Default Dark',
+      variant: 'dark',
+      Provider: ({ children }) => <UnifiedThemeProvider theme={themes.dark} children={children} />,
+    },
+    {
+      id: 'default-light',
+      title: 'Default Light',
+      variant: 'light',
+      Provider: ({ children }) => <UnifiedThemeProvider theme={themes.light} children={children} />,
+    },
+    {
+    id: 'multicolor-theme',
+    title: 'Multicolor Theme',
+    variant: 'light',
+    icon: <LightIcon />,
+    Provider: ({ children }) => <UnifiedThemeProvider theme={multicolorTheme} children={children} />,
+    }
+  ]
 });
 
 const routes = (
   <FlatRoutes>
-    <Route path="/" element={<Navigate to="catalog" />} />
+    <Route path="/" element={<HomepageCompositionRoot />}>
+      <HomePage />
+    </Route>
     <Route path="/catalog" element={<CatalogIndexPage />} />
     <Route
       path="/catalog/:namespace/:kind/:name"

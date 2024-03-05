@@ -26,3 +26,38 @@ spec:
   type: service
   owner: ghe@contraste.com
   lifecycle: experimental
+
+---
+
+apiVersion:  backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: NodejsApp
+  description: This is a sample Node.js app deployment
+  annotations:
+    backstage.io/managed-by-location: https://github.com/officialsamtech/nodejs-app/blob/main/catalog-info.yaml
+    github.com/project-slug: officialsamtech/nodejs-app
+    backstage.io/techdocs-ref: dir:.
+  tags:
+    - node
+    - web
+    - express
+
+spec:
+  type: service
+  lifecycle: experimental
+  owner: samtech
+  providesApis:
+    - user-api
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: user-api
+  description: The User Auth Service API
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: koslog-docs-team
+  definition:
+    $text: https://github.com/officialsamtech/nodejs-app/blob/main/openapi.yaml
