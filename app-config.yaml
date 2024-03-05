@@ -69,13 +69,7 @@ techdocs:
 
 auth:
   # see https://backstage.io/docs/auth/ to learn about auth providers
-  experimentalExtraAllowedOrigins: [ 'http://127.0.0.1:3000']
-  environment: development
-  providers:
-    github:
-      development:
-        clientId: 394cb97c3fff3d3e0f0d
-        clientSecret: d99785f2946026fc9c2ffeaba17d7264812ccec1
+  providers: {}
   
 
 scaffolder:
