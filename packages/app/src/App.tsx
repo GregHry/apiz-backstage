@@ -40,10 +40,27 @@ import { themes } from '@backstage/theme';
 import { UnifiedThemeProvider } from '@backstage/theme';
 import LightIcon from  '@material-ui/icons/WbSunny';
 import { multicolorTheme } from './theme/multicolorTheme';
+import { githubAuthApiRef } from '@backstage/core-plugin-api';
+import { SignInPage } from '@backstage/core-components';
 
 
 const app = createApp({
   apis,
+
+  components: {
+    SignInPage: props => (
+      <SignInPage
+        {...props}
+        auto
+        provider={{
+          id: 'github-auth-provider',
+          title: 'GitHub',
+          message: 'Sign in using GitHub',
+          apiRef: githubAuthApiRef,
+        }}
+      />
+    ),
+  },
 
   bindRoutes({ bind }) {
     bind(catalogPlugin.externalRoutes, {

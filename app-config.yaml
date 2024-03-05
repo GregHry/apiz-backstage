@@ -32,7 +32,7 @@ backend:
     connection:
       host: 127.0.0.1
       port: 5432
-      user: greg
+      user: admin
       password: main01
   # workingDirectory: /tmp # Use this to configure a working directory for the scaffolder, defaults to the OS temp-dir
 
@@ -41,7 +41,7 @@ integrations:
     - host: github.com
       # This is a Personal Access Token or PAT from GitHub. You can find out how to generate this token, and more information
       # about setting up the GitHub integration here: https://backstage.io/docs/getting-started/configuration#setting-up-a-github-integration
-      token: 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
+      token: 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
     ### Example for how to add your GitHub Enterprise instance using the API:
     # - host: ghe.example.net
     #   apiBaseUrl: https://ghe.example.net/api/v3
@@ -69,7 +69,13 @@ techdocs:
 
 auth:
   # see https://backstage.io/docs/auth/ to learn about auth providers
-  providers: {}
+  experimentalExtraAllowedOrigins: [ 'http://<ip_address_of_your_vm>:3000' ]
+  environment: development
+  providers:
+    github:
+      development:
+        clientId: 35bf326f5fcc22fe4a32
+        clientSecret: 2e486db0cb2417abd7b5b5e9e3fb61d43b298f5f
   
 
 scaffolder:

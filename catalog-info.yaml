@@ -29,3 +29,14 @@ spec:
 
 ---
 
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: github-actions
+  description: CI/CD github actions
+  annotations:
+    github.com/project-slug: 'GregHry/backstage'
+spec:
+  type: website
+  lifecycle: production
+  owner: Greg
