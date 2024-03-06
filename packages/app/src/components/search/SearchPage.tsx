@@ -94,6 +94,7 @@ const SearchPage = () => {
                   }}
                 />
               )}
+              
               <SearchFilter.Select
                 className={classes.filter}
                 label="Kind"

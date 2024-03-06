@@ -10,6 +10,7 @@ import {
   import { SearchContextProvider } from '@backstage/plugin-search-react';  
   import { HomePageSearchBar } from '@backstage/plugin-search';  
   import  Wallpaperr from '../../assets/wallpaper.png';
+  import { DevQuote } from '@parsifal-m/plugin-dev-quotes-homepage';
   
   // Styles
   const useStyles = makeStyles(theme => ({  
@@ -82,11 +83,14 @@ import {
               <Grid container item xs={12}>  
                 <Grid item xs={12} md={6}>  
                   <HomePageStarredEntities />  
-                </Grid>  
+                </Grid> 
+                <Grid item md={4} xs={12}>
+                  <DevQuote />
+                </Grid> 
                 <Grid item xs={12} md={6}>  
                   <HomePageToolkit tools={tools} />  
                 </Grid>  
-                  
+                 
               </Grid>  
             </Grid>  
           </Content>  

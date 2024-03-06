@@ -44,6 +44,7 @@ import { githubAuthApiRef } from '@backstage/core-plugin-api';
 import { SignInPage } from '@backstage/core-components';
 
 
+
 const app = createApp({
   apis,
 
@@ -144,6 +145,7 @@ const routes = (
     <Route path="/settings" element={<UserSettingsPage />} />
     <Route path="/catalog-graph" element={<CatalogGraphPage />} />
     <Route path="/dummy-plugin" element={<DummyPluginPage />} />
+    
   </FlatRoutes>
 );
 
