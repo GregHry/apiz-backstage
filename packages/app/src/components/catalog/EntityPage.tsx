@@ -66,6 +66,7 @@ import {
   EntityGithubInsightsReleasesCard,
   isGithubInsightsAvailable,
   } from '@roadiehq/backstage-plugin-github-insights';
+
   
   
 
@@ -142,6 +143,7 @@ const overviewContent = (
           <EntityGithubInsightsLanguagesCard />
           <EntityGithubInsightsReleasesCard />
         </Grid>
+        
         <Grid item md={6}>
           <EntityGithubInsightsReadmeCard maxHeight={350} />
         </Grid>
@@ -150,6 +152,7 @@ const overviewContent = (
     <Grid item md={6}>
       <EntityAboutCard variant="gridItem" />
     </Grid>
+    
     <Grid item md={6} xs={12}>
       <EntityCatalogGraphCard variant="gridItem" height={400} />
     </Grid>
