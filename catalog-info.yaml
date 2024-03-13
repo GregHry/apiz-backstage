@@ -16,7 +16,7 @@ spec:
 apiVersion: backstage.io/v1alpha1
 kind: Component
 metadata:
-  name: dummy-plugin
+  name: json
   description: Fake REST API of JSON data
   # Example for optional annotations
   annotations:
@@ -58,3 +58,17 @@ spec:
   type: service
   lifecycle: experimental
   owner: Greg
+
+---
+
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: konnect-component
+  annotations:
+    konnect/control-plane-id: afba4f6e-7941-4e3b-86de-bbeb1134438b
+    konnect/gateway-service-id: 35a33487-aa31-44c2-a8a9-ea6c6b3a765e
+spec:
+  lifecycle: production
+  owner: my-team
+  type: service

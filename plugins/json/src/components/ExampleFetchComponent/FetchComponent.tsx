@@ -1,16 +1,8 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
 import { Table, TableColumn, Progress, ResponseErrorPanel } from '@backstage/core-components';
 import useAsync from 'react-use/lib/useAsync';
 import { useApi, configApiRef } from '@backstage/core-plugin-api';
 
-const useStyles = makeStyles({
-  avatar: {
-    height: 32,
-    width: 32,
-    borderRadius: '50%',
-  },
-});
 
 type DummyJsonUser = {
   id?: number;
@@ -25,7 +17,7 @@ type DenseTableProps = {
 };
 
 export const DenseTable = ({ user }: DenseTableProps) => {
-  const classes = useStyles();
+  
 
   const columns: TableColumn[] = [
     { title: 'Id', field: 'id' },

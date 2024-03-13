@@ -31,7 +31,7 @@ export async function createRouter(
     logger.info(`Getting gateway service on ${serviceId}`);
     try{
       const service = await konnectSVC.getService(controlPlaneId, serviceId);
-      response.send(service);
+      return response.send(service);
     } catch (error){
 
       logger.error(`error getting Konnect gateway service ${serviceId}: ${error}`);
@@ -48,7 +48,7 @@ export async function createRouter(
     
     try {
       const routes = await konnectSVC.getRoutesByService(controlPlaneId, serviceId);
-      response.send(routes);
+      return response.send(routes);
 
     } catch (error) {
       logger.error(`error getting Routes Konnect Service ${serviceId}: ${error}`);
@@ -58,6 +58,7 @@ export async function createRouter(
         message: `error getting Routes Konnect Service ${serviceId}`,
       });
     }
+    
   });
   
   router.get('/gateway-manager/:controlPlaneId/gateway-services/:serviceId/plugins', async (request, response) => {
@@ -66,7 +67,7 @@ export async function createRouter(
       
     try {
       const plugins = await konnectSVC.getPluginsByService(controlPlaneId, serviceId);
-      response.send(plugins);
+       return response.send(plugins);
 
     } catch (error) {
       logger.error(`error getting Plugins Konnect Service ${serviceId}: ${error}`);
