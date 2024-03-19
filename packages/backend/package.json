@@ -18,6 +18,7 @@
   "dependencies": {
     "@backstage/backend-common": "^0.21.0",
     "@backstage/backend-defaults": "^0.2.13",
+    "@backstage/backend-plugin-api": "^0.6.13",
     "@backstage/backend-tasks": "^0.5.15",
     "@backstage/catalog-client": "^1.6.0",
     "@backstage/catalog-model": "^1.4.4",
@@ -37,8 +38,6 @@
     "@backstage/plugin-search-backend-module-techdocs": "^0.1.14",
     "@backstage/plugin-search-backend-node": "^1.2.14",
     "@backstage/plugin-techdocs-backend": "^1.9.3",
-    "@internal/backstage-plugin-carmen-backend": "^0.1.0",
-    "@internal/backstage-plugin-dummy-backend": "^0.1.0",
     "@internal/backstage-plugin-json-backend": "^0.1.0",
     "@internal/backstage-plugin-konnect-backend": "^0.1.0",
     "app": "link:../app",

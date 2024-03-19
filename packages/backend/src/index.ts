@@ -120,3 +120,17 @@ main().catch(error => {
   console.error('Backend failed to start up', error);
   process.exit(1);
 });
+// import { createBackend } from '@backstage/backend-defaults';
+// import { legacyPlugin } from '@backstage/backend-common';
+
+// const backend = createBackend();
+// backend.add(legacyPlugin('app', import('./plugins/app')));
+// backend.add(legacyPlugin('auth', import('./plugins/auth')));
+// backend.add(legacyPlugin('catalog', import('./plugins/catalog')));
+// backend.add(legacyPlugin('json', import('./plugins/json')));
+// backend.add(legacyPlugin('proxy', import('./plugins/proxy')));
+// backend.add(legacyPlugin('scaffolder', import('./plugins/scaffolder')));
+// backend.add(legacyPlugin('search', import('./plugins/search')));
+// backend.add(legacyPlugin('techdocs', import('./plugins/techdocs')));
+
+// backend.start();

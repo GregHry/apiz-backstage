@@ -4,7 +4,7 @@ import { errorHandler } from '@backstage/backend-common';
 import express from 'express';
 import Router from 'express-promise-router';
 import { Logger } from 'winston';
-import axios from 'axios';
+
 
 
 export interface RouterOptions {
@@ -25,18 +25,6 @@ export async function createRouter(
     response.json({ status: 'ok' });
   });
 
-  // Route pour récupérer des données à partir de DummyJson
-  // router.get('/dummyjson', async (_, response) => {
-  //   try {
-  //     const dummyJsonResponse = await axios.get('https://www.dummyjson.com/users');
-  //     response.json(dummyJsonResponse.data);
-  //   } catch (error: any) { // Utilisation de "error: any" pour gérer les erreurs de type inconnu
-  //     logger.error('Erreur lors de la récupération des données depuis DummyJson :', error.message);
-  //     // Afficher plus d'informations sur l'erreur
-  //     logger.error('Détails de l\'erreur :', error);
-  //     response.status(500).json({ error: 'Échec de la récupération des données depuis DummyJson', details:error.toString() });
-  //   }
-  // });
   router.get('/dummyjson', async (_, response) => {
     try {
       // Authentification
@@ -46,30 +34,25 @@ export async function createRouter(
         body: JSON.stringify({
           username: 'kminchelle',
           password: '0lelplR',
-          // expiresInMins: 60, // optional
         }),
       });
-  
       const authData = await authResponse.json();
-  
-      // Vérifiez que la réponse contient un token
+      // Vérification que la réponse contient un token
       if (!authData.token) {
         throw new Error('Échec de l\'authentification avec DummyJson');
       }
-  
-      // Utilisez le token pour faire une requête GET à https://www.dummyjson.com/products
+      // Token utilisé pour faire la requête
       const dummyJsonResponse = await fetch('https://dummyjson.com/users', {
         headers: { Authorization: `Bearer ${authData.token}` },
       });
-  
+      
       const data = await dummyJsonResponse.json();
-  
+
       response.json(data);
-    } catch (error: any) { // Utilisation de "error: any" pour gérer les erreurs de type inconnu
+    } catch (error: any) { // Utilisation de "error: any" pour gérer totu type d'erreur
       logger.error('Erreur lors de la récupération des données depuis DummyJson :', error.message);
-      // Afficher plus d'informations sur l'erreur
-      logger.error('Détails de l\'erreur :', error);
-      response.status(500).json({ error: 'Échec de la récupération des données depuis DummyJson', details: error.toString() });
+      
+      response.status(500).json({ error: 'Échec de la récupération des données depuis DummyJson' });
     }
   });
 
