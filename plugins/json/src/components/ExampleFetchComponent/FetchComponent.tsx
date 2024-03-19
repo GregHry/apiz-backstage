@@ -56,8 +56,8 @@ export const ExampleFetchComponent = () => {
         throw new Error('Failed to fetch data');
       }
       const data = await response.json();
-      console.log(data); // Afficher les données
       return data;
+      
     } catch (error) {
       console.error(error);
       throw new Error('Failed to fetch data');
