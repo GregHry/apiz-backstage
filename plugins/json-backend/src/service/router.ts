@@ -49,7 +49,7 @@ export async function createRouter(
       const data = await dummyJsonResponse.json();
 
       response.json(data);
-    } catch (error: any) { // Utilisation de "error: any" pour gérer totu type d'erreur
+    } catch (error: any) { // Utilisation de "error: any" pour gérer tout type d'erreur
       logger.error('Erreur lors de la récupération des données depuis DummyJson :', error.message);
       
       response.status(500).json({ error: 'Échec de la récupération des données depuis DummyJson' });
