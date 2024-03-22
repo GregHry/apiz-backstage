@@ -8,6 +8,9 @@ import CreateComponentIcon from '@material-ui/icons/AddCircleOutline';
 import LogoIcon from './LogoIcon';
 import CustomLogo from './CustomLogo';
 import LogoAudaxis from './LogoAudaxis';
+import LogoApiz from './LogoApiz';
+import LogoApizWhite from './LogoApizWhite';
+import LogoApizMini from './LogoApizMini';
 
 
 
@@ -54,7 +57,8 @@ const SidebarLogo = () => {
   return (
     <div className={classes.root}>
       <Link to="/" underline="none" className={classes.link} aria-label="Home">
-        {isOpen ? <LogoAudaxis /> : <LogoIcon />}
+        {/* {isOpen ? <LogoApizWhite /> : <LogoIcon />} */}
+        {isOpen ? <LogoApiz /> : <LogoApizMini />}
       </Link>
     </div>
   );

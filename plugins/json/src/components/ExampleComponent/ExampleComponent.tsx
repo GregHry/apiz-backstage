@@ -13,7 +13,7 @@ import { ExampleFetchComponent } from '../ExampleFetchComponent';
 
 export const ExampleComponent = () => {
   return (
-  <Page themeId="tool">
+  <Page themeId="home">
     <Header title="DummyJSON" subtitle="Fake REST API of JSON data">
       <HeaderLabel label="Owner" value="GregH" />
       <HeaderLabel label="Lifecycle" value="experimental" />

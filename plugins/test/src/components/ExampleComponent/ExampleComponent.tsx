@@ -10,10 +10,12 @@ import {
   SupportButton,
 } from '@backstage/core-components';
 import { ExampleFetchComponent } from '../ExampleFetchComponent';
-import  ToggleButton  from '../ToggleButton';
+
+import BasicSwitch from '../Switch';
+
 
 export const ExampleComponent = () => (
-  <Page themeId="tool">
+  <Page themeId="">
     <Header title="Welcome to test!" subtitle="Optional subtitle">
       <HeaderLabel label="Owner" value="Team X" />
       <HeaderLabel label="Lifecycle" value="Alpha" />
@@ -33,8 +35,10 @@ export const ExampleComponent = () => (
         <Grid item>
           <ExampleFetchComponent />
         </Grid>
+        
+        
         <Grid item>
-          <ToggleButton />
+        <BasicSwitch />
         </Grid>
       </Grid>
     </Content>

@@ -1,55 +1,74 @@
 import {
-    createUnifiedTheme,
-    palettes
-  } from '@backstage/theme';
-  
-  export const multicolorTheme = createUnifiedTheme({  
-    palette: {  
-      ...palettes.light,
-      primary: {  
-        main: '#FB4341',
-      },  
-      secondary: {  
-        main: '#D62020',
-      },  
-      background: {  
-        default: '#FFFFFF',
-      },  
-      navigation: {  
-        background: '#031a6b',
-        indicator: '#FB4341',
-        selectedColor: '#FFFFFF',
-        color: '#FFFFFF',
-        navItem: {  
-          hoverBackground: '#f50c1a',
-        },  
-      },    
+  createUnifiedTheme,
+  palettes
+} from '@backstage/theme';
+
+export const multicolorTheme = createUnifiedTheme({
+  palette: {
+    ...palettes.light,
+    primary: {
+      main: '#56838a',
     },
-   // fontFamily: '"Helvetica Neue", Helvetica, Arial, sans-serif', // Moved fontFamily here
-    fontFamily: '"Lato","Helvetica Neue", Helvetica, Arial, sans-serif', // Moved fontFamily here
-    components: {
-      MuiButton: {  
-        styleOverrides: { 
-          root: {  
-            textTransform: 'none',
-          },  
-          containedPrimary: {  
-            backgroundColor: '#001952',
-            '&:hover': {  
-              backgroundColor: '#D62020',
-            },  
-            color: '#FFFFFF',  
-          },  
-          containedSecondary: {  
-            backgroundColor: '#FB4341',
-            '&:hover': {  
-              backgroundColor: '#D62020',
-            },  
-            color: '#FFFFFF',  
-          },  
-        },  
-      },  
+    secondary: {
+      main: '#D62020',
     },
-    defaultPageTheme: 'home',  
-  });
-  
+    background: {
+      default: '#FFFFFF',
+    },
+    navigation: {
+      background: '#FFFFFF',
+      // background: '#56838a',
+      indicator: '#e6550e',
+      selectedColor: '#f3a064',
+      // selectedColor: '#FFFFFF',
+      color: '#757575',
+      //  color: '#FFFFFF',
+      	// gris-vert: #56838a
+        // orange: #e6550e
+        // orange clair: #f3a064
+        // gris plus clair : #999999
+        // #fadccb - Orange assez clair
+      navItem: {
+        hoverBackground: '#FFFFFF',
+        // hoverBackground: '#e6550e',
+      },
+    },
+  },
+  fontFamily: '"Lato","Helvetica Neue", Helvetica, Arial, sans-serif',
+  components: {
+    MuiButton: {
+      styleOverrides: {
+        root: {
+          textTransform: 'none',
+        },
+        containedPrimary: {
+          backgroundColor: '#001952',
+          color: '#FFFFFF',
+          '&:hover': {
+            backgroundColor: '#D62020',
+            color: '#FFFFFF', // Changement de couleur du texte au survol
+          },
+        },
+        containedSecondary: {
+          backgroundColor: '#FB4341',
+          color: '#FFFFFF',
+          '&:hover': {
+            backgroundColor: '#D62020',
+            color: '#FFFFFF', // Changement de couleur du texte au survol
+          },
+        },
+      },
+    },
+    MuiTypography: {
+      styleOverrides: {
+        root: {
+          transition: 'color 0.3s ease',
+          '&:hover': { // Déplacer le style de survol ici
+            filter: 'brightness(120%)',
+          },
+        },
+      },
+    },
+  },
+  defaultPageTheme: 'home',
+});
