@@ -9,15 +9,17 @@ import {
   import React from 'react';  
   import { SearchContextProvider } from '@backstage/plugin-search-react';  
   import { HomePageSearchBar } from '@backstage/plugin-search';  
-  import  Wallpaperr from '../../assets/wallpaper.png';
+  import ApizHomePage from '../../assets/Apiz_Homepage.jpg'
+  
   import { DevQuote } from '@parsifal-m/plugin-dev-quotes-homepage';
   
   // Styles
   const useStyles = makeStyles(theme => ({  
     // Ajout d'une classe pour le fond d'écran
     content: {
+        
+        backgroundImage: `url(${ApizHomePage})`, // Utilisation de Wallpaperr comme fond d'écran
         // backgroundImage: `url(${Wallpaperr})`, // Utilisation de Wallpaperr comme fond d'écran
-        backgroundImage: `url(${Wallpaperr})`, // Utilisation de Wallpaperr comme fond d'écran
         backgroundRepeat: 'no-repeat',
         backgroundPosition: 'top',
         backgroundSize: '100% auto', // Réglage de la taille du fond d'écran à 60% de la largeur disponible

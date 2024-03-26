@@ -5,10 +5,12 @@ import ExtensionIcon from '@material-ui/icons/Extension';
 import MapIcon from '@material-ui/icons/MyLocation';
 import LibraryBooks from '@material-ui/icons/LibraryBooks';
 import CreateComponentIcon from '@material-ui/icons/AddCircleOutline';
-import LogoFull from './LogoFull';
 import LogoIcon from './LogoIcon';
 import CustomLogo from './CustomLogo';
 import LogoAudaxis from './LogoAudaxis';
+import LogoApiz from './LogoApiz';
+import LogoApizWhite from './LogoApizWhite';
+import LogoApizMini from './LogoApizMini';
 
 
 
@@ -55,7 +57,8 @@ const SidebarLogo = () => {
   return (
     <div className={classes.root}>
       <Link to="/" underline="none" className={classes.link} aria-label="Home">
-        {isOpen ? <LogoAudaxis /> : <LogoIcon />}
+        {/* {isOpen ? <LogoApizWhite /> : <LogoIcon />} */}
+        {isOpen ? <LogoApiz /> : <LogoApizMini />}
       </Link>
     </div>
   );
@@ -80,7 +83,7 @@ export const Root = ({ children }: PropsWithChildren<{}>) =>
         <SidebarItem icon={ExtensionIcon} to="api-docs" text="APIs" />
         <SidebarItem icon={LibraryBooks} to="docs" text="Docs" />
         <SidebarItem icon={CreateComponentIcon} to="create" text="Create..." />
-        <SidebarItem icon={CustomLogo} to="dummy-plugin" text="DummyJSON" />
+        <SidebarItem icon={CustomLogo} to="json" text="DummyJSON" />
         {/* End global nav */}
         <SidebarDivider />
         <SidebarScrollWrapper>

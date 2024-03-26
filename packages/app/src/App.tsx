@@ -42,6 +42,10 @@ import LightIcon from  '@material-ui/icons/WbSunny';
 import { multicolorTheme } from './theme/multicolorTheme';
 import { githubAuthApiRef } from '@backstage/core-plugin-api';
 import { SignInPage } from '@backstage/core-components';
+import { JsonPage } from '@internal/backstage-plugin-json';
+import { TestPage } from '@internal/backstage-plugin-test';
+
+
 
 
 
@@ -146,6 +150,9 @@ const routes = (
     <Route path="/catalog-graph" element={<CatalogGraphPage />} />
     <Route path="/dummy-plugin" element={<DummyPluginPage />} />
     
+    
+    <Route path="/json" element={<JsonPage />} />
+    <Route path="/test" element={<TestPage />} />
   </FlatRoutes>
 );
 

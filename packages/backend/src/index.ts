@@ -31,6 +31,8 @@ import search from './plugins/search';
 import { PluginEnvironment } from './types';
 import { ServerPermissionClient } from '@backstage/plugin-permission-node';
 import { DefaultIdentityClient } from '@backstage/plugin-auth-node';
+import json from './plugins/json';
+
 
 function makeCreateEnv(config: Config) {
   const root = getRootLogger();
@@ -85,6 +87,9 @@ async function main() {
   const techdocsEnv = useHotMemoize(module, () => createEnv('techdocs'));
   const searchEnv = useHotMemoize(module, () => createEnv('search'));
   const appEnv = useHotMemoize(module, () => createEnv('app'));
+  const jsonEnv = useHotMemoize(module, () => createEnv('json'));
+  
+  
 
   const apiRouter = Router();
   apiRouter.use('/catalog', await catalog(catalogEnv));
@@ -93,6 +98,8 @@ async function main() {
   apiRouter.use('/techdocs', await techdocs(techdocsEnv));
   apiRouter.use('/proxy', await proxy(proxyEnv));
   apiRouter.use('/search', await search(searchEnv));
+  apiRouter.use('/json', await json(jsonEnv));
+  
 
   // Add backends ABOVE this line; this 404 handler is the catch-all fallback
   apiRouter.use(notFoundHandler());
@@ -113,3 +120,17 @@ main().catch(error => {
   console.error('Backend failed to start up', error);
   process.exit(1);
 });
+// import { createBackend } from '@backstage/backend-defaults';
+// import { legacyPlugin } from '@backstage/backend-common';
+
+// const backend = createBackend();
+// backend.add(legacyPlugin('app', import('./plugins/app')));
+// backend.add(legacyPlugin('auth', import('./plugins/auth')));
+// backend.add(legacyPlugin('catalog', import('./plugins/catalog')));
+// backend.add(legacyPlugin('json', import('./plugins/json')));
+// backend.add(legacyPlugin('proxy', import('./plugins/proxy')));
+// backend.add(legacyPlugin('scaffolder', import('./plugins/scaffolder')));
+// backend.add(legacyPlugin('search', import('./plugins/search')));
+// backend.add(legacyPlugin('techdocs', import('./plugins/techdocs')));
+
+// backend.start();
