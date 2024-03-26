@@ -1,6 +1,3 @@
-This is a sample Node.js app that provides user authentication features.
+Backstage app
 
-Features
-User registration
-User login
-User logout
+This is the documentation folder, with actually no information at all 
