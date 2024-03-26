@@ -33,7 +33,6 @@ import { AppRouter, FlatRoutes } from '@backstage/core-app-api';
 import { CatalogGraphPage } from '@backstage/plugin-catalog-graph';
 import { RequirePermission } from '@backstage/plugin-permission-react';
 import { catalogEntityCreatePermission } from '@backstage/plugin-catalog-common/alpha';
-import { DummyPluginPage } from '@internal/backstage-plugin-dummy-plugin';
 import { HomepageCompositionRoot } from '@backstage/plugin-home';
 import { HomePage } from './components/home/HomePage';
 import { themes } from '@backstage/theme';
@@ -147,10 +146,7 @@ const routes = (
       {searchPage}
     </Route>
     <Route path="/settings" element={<UserSettingsPage />} />
-    <Route path="/catalog-graph" element={<CatalogGraphPage />} />
-    <Route path="/dummy-plugin" element={<DummyPluginPage />} />
-    
-    
+    <Route path="/catalog-graph" element={<CatalogGraphPage />} /> 
     <Route path="/json" element={<JsonPage />} />
     <Route path="/test" element={<TestPage />} />
   </FlatRoutes>
