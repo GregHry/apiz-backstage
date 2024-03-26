@@ -1,1 +1,0 @@
-export { EntityOverviewCard} from './EntityOverviewCard';
