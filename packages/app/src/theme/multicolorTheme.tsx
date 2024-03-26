@@ -7,6 +7,7 @@ export const multicolorTheme = createUnifiedTheme({
   palette: {
     ...palettes.light,
     primary: {
+      // couleur écriture principale
       main: '#56838a',
     },
     secondary: {
@@ -30,7 +31,7 @@ export const multicolorTheme = createUnifiedTheme({
         // #fadccb - Orange assez clair
       navItem: {
         hoverBackground: '#FFFFFF',
-        // hoverBackground: '#e6550e',
+        // hoverBackground: '#FAF9F6',
       },
     },
   },
@@ -63,7 +64,7 @@ export const multicolorTheme = createUnifiedTheme({
       styleOverrides: {
         root: {
           transition: 'color 0.3s ease',
-          '&:hover': { // Déplacer le style de survol ici
+          '&:hover': { 
             filter: 'brightness(120%)',
           },
         },
