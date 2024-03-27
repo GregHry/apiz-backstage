@@ -32,6 +32,7 @@ import { PluginEnvironment } from './types';
 import { ServerPermissionClient } from '@backstage/plugin-permission-node';
 import { DefaultIdentityClient } from '@backstage/plugin-auth-node';
 import json from './plugins/json';
+import aws from './plugins/aws';
 
 
 function makeCreateEnv(config: Config) {
@@ -88,6 +89,7 @@ async function main() {
   const searchEnv = useHotMemoize(module, () => createEnv('search'));
   const appEnv = useHotMemoize(module, () => createEnv('app'));
   const jsonEnv = useHotMemoize(module, () => createEnv('json'));
+  const awsEnv = useHotMemoize(module, () => createEnv('aws'));
   
   
 
@@ -99,6 +101,7 @@ async function main() {
   apiRouter.use('/proxy', await proxy(proxyEnv));
   apiRouter.use('/search', await search(searchEnv));
   apiRouter.use('/json', await json(jsonEnv));
+  apiRouter.use('/aws', await aws(awsEnv));
   
 
   // Add backends ABOVE this line; this 404 handler is the catch-all fallback
