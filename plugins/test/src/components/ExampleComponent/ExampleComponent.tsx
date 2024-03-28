@@ -14,6 +14,7 @@ import { ExampleFetchComponent } from '../ExampleFetchComponent';
 import BasicSwitch from '../Switch';
 
 
+
 export const ExampleComponent = () => (
   <Page themeId="">
     <Header title="Welcome to test!" subtitle="Optional subtitle">
@@ -35,11 +36,10 @@ export const ExampleComponent = () => (
         <Grid item>
           <ExampleFetchComponent />
         </Grid>
-        
-        
         <Grid item>
         <BasicSwitch />
         </Grid>
+        
       </Grid>
     </Content>
   </Page>

@@ -43,6 +43,7 @@ import { githubAuthApiRef } from '@backstage/core-plugin-api';
 import { SignInPage } from '@backstage/core-components';
 import { JsonPage } from '@internal/backstage-plugin-json';
 import { TestPage } from '@internal/backstage-plugin-test';
+import { AwsInstancePage } from '@internal/backstage-plugin-aws-instance';
 
 
 
@@ -149,6 +150,7 @@ const routes = (
     <Route path="/catalog-graph" element={<CatalogGraphPage />} /> 
     <Route path="/json" element={<JsonPage />} />
     <Route path="/test" element={<TestPage />} />
+    <Route path="/aws-instance" element={<AwsInstancePage />} />
   </FlatRoutes>
 );
 

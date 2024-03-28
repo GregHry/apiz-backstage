@@ -48,6 +48,9 @@ integrations:
 
 proxy:
   '/dummyjson': http://localhost:7007/api/json/dummyjson
+  '/aws': http://localhost:7007/api/aws/start-instance
+  '/awss': http://localhost:7007/api/aws/stop-instance
+  '/aws-describe' : http://localhost:7007/api/aws/describe-instance
   
   ### Example for how to add a proxy endpoint for the frontend.
   ### A typical reason to do this is to handle HTTPS and CORS for internal services.

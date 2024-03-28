@@ -2,10 +2,10 @@ import { errorHandler } from '@backstage/backend-common';
 import express from 'express';
 import Router from 'express-promise-router';
 import { Logger } from 'winston';
-import { EC2 } from 'aws-sdk'; // Importez AWS SDK EC2
 import { StopInstancesCommand } from "@aws-sdk/client-ec2";
 import { EC2Client } from "@aws-sdk/client-ec2"; // Importez EC2Client
 import { StartInstancesCommand } from "@aws-sdk/client-ec2";
+import { DescribeInstancesCommand, Instance } from "@aws-sdk/client-ec2";
 
 
 export interface RouterOptions {
@@ -70,6 +70,27 @@ export async function createRouter(
     } catch (error: any) {
       logger.error('Erreur lors de l\'arrêt de l\'instance EC2 :', error.message);
       response.status(500).json({ error: 'Échec de l\'arrêt de l\'instance EC2' });
+    }
+  });
+  
+  router.get('/describe-instance', async (_, response) => {
+    const client = new EC2Client({ region: "eu-west-3" }); 
+    const command = new DescribeInstancesCommand({
+      InstanceIds: ['i-062384a56c259671a'] // ID de l'instance EC2
+    });
+  
+    try {
+      const { Reservations } = await client.send(command);
+      const instanceList = Reservations?.reduce((prev: Instance[], current) => {
+        return prev.concat(current.Instances ?? []);
+      }, []);
+  
+      console.log(instanceList);
+  
+      response.json({ success: true, data: instanceList });
+    } catch (error: any) {
+      console.error("Erreur lors de la description de l'instance EC2 :", error.message);
+      response.status(500).json({ error: "Échec de la description de l'instance EC2" });
     }
   });
 

@@ -2,6 +2,7 @@ import * as React from 'react';
 import Switch from '@mui/material/Switch';
 import { withStyles } from '@mui/styles';
 import { useApi, configApiRef } from '@backstage/core-plugin-api';
+import { useEffect } from 'react';
 
 const GreenSwitch = withStyles({
   switchBase: {
@@ -51,6 +52,30 @@ export default function BasicSwitch() {
     }
   };
   const [checked, setChecked] = React.useState(false);
+
+  //UseEffect pour que le bouton récupère l'état de la machine
+  useEffect(() => {
+    const fetchState = async () => {
+      try {
+        const response = await fetch(`${backendUrl}/api/proxy/aws-describe`);
+        if (!response.ok) {
+          throw new Error('Failed to fetch instance state');
+        }
+        const data = await response.json();
+        const state = data.data[0].State.Name; 
+        if (state === 'running') {
+          setChecked(true);
+        }
+        else {
+            setChecked(false);
+        }
+      } catch (error) {
+        console.error(error);
+      }
+    };
+
+    fetchState();
+  }, [backendUrl]);
 
   const handleChange = (event: any) => {
     setChecked(event.target.checked);
